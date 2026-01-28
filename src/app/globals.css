@@ -61,7 +61,7 @@ body {
 
 
   .btn-primary {
-    @apply px-6 py-3 bg-linear-to-r from-primary to-secondary font-bold text-base cursor-pointer;
+    @apply px-6 py-3 bg-linear-to-r from-primary from-20% to-secondary font-bold text-base cursor-pointer;
   }
 
   .primary-gradient {
