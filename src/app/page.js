@@ -3,6 +3,7 @@ import BannerImage from "@/components/BannerImage";
 import ResumeSection from "@/components/ResumeSection";
 import Footer from "@/components/shared/Footer";
 import Navbar from "@/components/shared/Navbar";
+import Skills from "@/components/Skills";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
 
         <div className="w-[73.5%] ml-auto">
           <ResumeSection />
+          <Skills/>
         </div>
 
         {/* footer used in Hero or banner section  */}
