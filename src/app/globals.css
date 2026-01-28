@@ -1,26 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
 @import "tailwindcss";
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --primary: #F5BD4D;
+  --secondary: #F89222;
+  --custom-black: #121414;
+
+}
+
+
+.dark, [data-theme='dark'] {
+  --background: #171B1A;
+  --foreground: #ededed;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-custom-black: var(--custom-black);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-dm-sans: "DM Sans", sans-serif;
+  --container-1647: 1647px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+
+@layer components {
+  .btn-outline {
+    @apply relative px-6 py-3 rounded-full font-bold text-transparent bg-clip-text transition-all duration-300 cursor-pointer;
+    background-image: linear-gradient(to right, var(--primary), var(--secondary));
+    display: inline-block;
+  }
+
+  .btn-outline::after {
+    content: "";
+    @apply absolute inset-0 rounded-full border-2 border-transparent;
+    background: linear-gradient(to right, var(--primary), var(--secondary)) border-box;
+    -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+
+  .btn-primary {
+    @apply px-6 py-3 bg-linear-to-r from-primary to-secondary font-bold text-base cursor-pointer;
+  }
+
+  .primary-gradient {
+    @apply bg-linear-to-r from-primary to-secondary bg-clip-text text-transparent
+  }
 }
